@@ -29,22 +29,11 @@ main();
 ### `h2c(method, url)`
 
 Takes two arguments:
-* `method`, which can be one of the following request methods (not case sensitive):  
-  * CONNECT
-  * DELETE
-  * GET
-  * HEAD
-  * OPTIONS
-  * PATCH
-  * POST
-  * PUT
-  * TRACE  
+* `method`, which should be a valid HTTP request method (not case sensitive):  
 * `url`, which includes the full pathname of the resource to be retrieved.
-
-Throws a `TypeError` if the passed request method is not one of the methods listed above, or if the passed URL is not a valid URL.  
 
 Returns an object with the following two properties:
 * `headers`  
-  An *object* containing the incoming HTTP/2 headers.
+  An object containing the incoming HTTP/2 headers.
 * `body`  
-  The type of `body` depends on the value of the incoming `content-type` header. Can be a *string*, *object*, *buffer*, or `null`.
+  Depends on the value of the incoming `content-type` header. Can be a string, object, buffer, or `null`.

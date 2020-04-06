@@ -82,12 +82,4 @@ describe('Calling h2c()', () => {
       expect(body).toBeNull();
     });
   });
-
-  describe('with an invalid request method', () => {
-    test('throws an error', async () => {
-      //@ts-ignore
-      await expect(h2c('FOO', 'http://localhost:3000/foo'))
-        .rejects.toThrow('FOO is not a valid request method.');
-    });
-  });
 });

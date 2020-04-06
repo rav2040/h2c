@@ -12,18 +12,6 @@ type Result = {
   body: any,
 };
 
-const validRequestMethods = new Set([
-  'CONNECT',
-  'DELETE',
-  'GET',
-  'HEAD',
-  'OPTIONS',
-  'PATCH',
-  'POST',
-  'PUT',
-  'TRACE',
-]);
-
 function getHeaders(req: ClientHttp2Stream): Promise<IncomingHttpHeaders> {
   return new Promise(resolve => {
     req.on('response', (headers) => resolve(headers));
@@ -51,10 +39,6 @@ function onEndListener(req: ClientHttp2Stream): Promise<void> {
  */
 
 export async function h2c(method: RequestMethod, url: string) {
-  if (!validRequestMethods.has(method)) {
-    throw TypeError(`${method} is not a valid request method.`);
-  }
-
   const { origin, pathname, search } = new URL(url);
 
   const client = connect(origin);

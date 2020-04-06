@@ -24,6 +24,11 @@ describe('Calling h2c()', () => {
       stream.end('Hello, world!');
     }
 
+    else if (headers[HTTP2_HEADER_PATH] === '/foo?bar=baz') {
+      stream.respond({ [HTTP2_HEADER_CONTENT_TYPE]: 'text/plain' });
+      stream.end('Hello, world!');
+    }
+
     else {
       stream.respond({ [HTTP2_HEADER_STATUS]: 404 }, { endStream: true });
     }
@@ -59,6 +64,14 @@ describe('Calling h2c()', () => {
       expect(headers[HTTP2_HEADER_STATUS]).toBe(200);
       expect(Buffer.isBuffer(body)).toBe(true);
       expect(body?.toString()).toBe('Hello, world!');
+    });
+  });
+
+  describe('with the url \'http://localhost:3000/foo?bar=baz\'', () => {
+    test('returns a 200 status code and the string \'Hello, world!\'', async () => {
+      const { headers, body } = await h2c('GET', 'http://localhost:3000/foo?bar=baz');
+      expect(headers[HTTP2_HEADER_STATUS]).toBe(200);
+      expect(body).toBe('Hello, world!');
     });
   });
 

@@ -55,12 +55,12 @@ export async function h2c(method: RequestMethod, url: string) {
     throw TypeError(`${method} is not a valid request method.`);
   }
 
-  const { origin, pathname } = new URL(url);
+  const { origin, pathname, search } = new URL(url);
 
   const client = connect(origin);
   const req = client.request({
     [HTTP2_HEADER_METHOD]: method.toUpperCase(),
-    [HTTP2_HEADER_PATH]: pathname,
+    [HTTP2_HEADER_PATH]: pathname + search,
   });
 
   const [headers, body] = await Promise.all([

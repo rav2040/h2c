@@ -18,8 +18,8 @@ const { h2c } = require('h2c');
 async function main() {
   const { headers, body } = await h2c('GET', 'https://localhost/hello');
 
-  console.log(headers.status)   // 200
-  console.log(body);            // Hello, world!
+  console.log(headers[':status'])   // 200
+  console.log(body);                // Hello, world!
 }
 
 main();

@@ -3,7 +3,7 @@
 ![Node.js CI](https://github.com/rav2040/h2c/workflows/Node.js%20CI/badge.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/rav2040/h2c/badge.svg?targetFile=package.json)](https://snyk.io/test/github/rav2040/h2c?targetFile=package.json)
 
-A basic HTTP/2 client for making web requests in Node.js. It does *not* support HTTP/1.1 or older.
+A basic command line client for making HTTP/2 requests. It does *not* support HTTP/1.1 or older.
 
 ## Installation
 ```

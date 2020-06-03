@@ -1,6 +1,6 @@
 {
   "name": "h2c",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "A simple HTTP/2 client for Node.js.",
   "author": "Stuart Kennedy",
   "license": "MIT",
@@ -19,20 +19,18 @@
     "client"
   ],
   "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "bin": {
+    "h2c": "lib/index.js"
+  },
   "scripts": {
-    "test": "jest",
-    "test:coverage": "jest --coverage",
+    "test": "node ./tests/bin.test.js",
     "build": "rm -rf ./lib && tsc -b"
   },
   "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "@types/node": "^13.11.0",
-    "@typescript-eslint/eslint-plugin": "^2.25.0",
-    "@typescript-eslint/parser": "^2.25.0",
-    "eslint": "^6.8.0",
-    "jest": "^25.2.7",
-    "ts-jest": "25.2.1",
-    "typescript": "^3.8.3"
+    "eslint": "^7.1.0"
+  },
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "commander": "^5.1.0"
   }
 }

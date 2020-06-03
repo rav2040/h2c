@@ -1,27 +1,26 @@
 {
   "env": {
     "es6": true,
-    "node": true
+    "node": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended"
+    "eslint:recommended"
   ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module"
-  },
-  "plugins": [
-    "@typescript-eslint"
+  "ignorePatterns": [
+    "node_modules/",
+    "coverage/"
   ],
   "rules": {
-    "no-unused-vars": "off",
-    "require-atomic-updates": "off",
+    "no-inner-declarations": "off",
     "indent": [
       "error",
       2,

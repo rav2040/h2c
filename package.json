@@ -1,6 +1,6 @@
 {
   "name": "h2c",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A basic HTTP/2 CLI client for Node.js.",
   "author": "Stuart Kennedy",
   "license": "MIT",
